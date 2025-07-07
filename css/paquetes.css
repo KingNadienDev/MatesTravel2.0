@@ -1,657 +1,120 @@
-
-body {
-    background-color: #d6d4d4; 
-    margin: 0; 
-    padding: 0; 
-    font-family: 'Inter', sans-serif; 
-}
-
-/* Estilos para el encabezado principal (h1) */
-h1 {
-    text-align: right; 
-    color: #308ae4; 
-    font-size: 5rem; 
-    margin-top: 50px; 
-    margin-right: 260px; 
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-    transition: color 0.3s ease, transform 0.2s ease; 
-}
-
-
-h1:hover {
-    color: #043502;
-    transform: scale(1.05); 
-}
-
-/* Contenedor principal de las tarjetas */
-.principal {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    margin-top: 100px; 
-    background-color: #042a53; 
-    padding: 20px;     
-    gap: 20px; 
-    border-radius: 10px; 
-    margin-left: 20px; 
-    margin-right: 20px; 
-}
-
-/* Estilos para las tarjetas individuales */
-.secundario {
-    width: 100%; 
-    max-width: 400px;
-    background-color: rgb(146, 197, 218); 
-    margin: 10px; 
-    box-sizing: border-box; 
-    cursor: pointer; 
-    border-radius: 10px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.2s ease, background-color 0.2s ease; 
-}
-
-
-.secundario:hover {
-    transform: scale(1.03); 
-    background-color: #86bbf5; 
-}
-
-/* Estilos para las imágenes dentro de las tarjetas */
-.card-img-top {
-    width: 100%; 
-    height: 200px; 
-    object-fit: cover; 
-    padding: 5px; 
-    border-radius: 8px; 
-    transition: transform 0.2s ease, opacity 0.2s ease; 
-}
-
-
-.card-img-top:hover {
-    transform: scale(1.02); 
-    opacity: 0.9; 
-}
-
-/* Estilos para el título de la tarjeta */
-.card-title {
-    font-size: 1.5rem; 
-    font-weight: bold; 
-    text-align: center; 
-    color: #042a53; 
-    padding: 10px 0; 
-}
-
-/* Estilos para el texto de la tarjeta */
-.card-text {
-    font-size: 1.2rem; 
-    text-align: center; 
-    color: #ffffff; 
-    padding: 0 15px 15px; 
-}
-
-/* Estilos para los botones primarios */
-.btn-primary {
-    display: block; 
-    margin: 10px auto; 
-    background-color: #007bff; 
-    color: white;    
-    border: none; 
-    padding: 10px 20px; 
-    font-size: 1rem; 
-    cursor: pointer; 
-    border-radius: 5px; 
-    text-align: center; 
-    transition: background-color 0.2s ease, transform 0.2s ease; 
-}
-
-
-.btn-primary:hover {
-    background-color: #0056b3; 
-    transform: translateY(-2px); 
-}
-
-
-
-/* Para pantallas con un ancho máximo de 1024px (tablets y laptops pequeñas) */
-@media (max-width: 1024px) {
-    h1 {
-        font-size: 4rem; 
-        margin-right: 100px; 
-        text-align: center; 
-        margin-left: 20px; 
-    }
-
-    .principal {
-        margin-top: 50px; 
-        padding: 15px; 
-    }
-
-    .secundario {
-        max-width: 350px; 
-    }
-}
-
-/* Para pantallas con un ancho máximo de 768px (tablets en modo retrato) */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 3rem; 
-        margin-right: 20px; 
-        text-align: center; 
-        margin-top: 30px; 
-    }
-
-    .principal {
-        flex-direction: column; 
-        align-items: center; 
-        margin-top: 30px; 
-        padding: 10px; 
-    }
-
-    .secundario {
-        width: 90%; 
-        margin: 10px 0; 
-    }
-
-    .card-img-top {
-        height: 180px; 
-    }
-
-    .card-title {
-        font-size: 1.3rem; 
-    }
-
-    .card-text {
-        font-size: 1rem; 
-    }
-
-    .btn-primary {
-        padding: 8px 15px; 
-        font-size: 0.9rem; 
-    }
-}
-
-/* Para pantallas con un ancho máximo de 480px (teléfonos móviles) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.2rem; 
-        margin-right: 10px; 
-        text-align: center; 
-    }
-
-    .principal {
-        margin-top: 20px; 
-        padding: 5px; 
-        gap: 10px; 
-    }
-
-    .secundario {
-        width: 95%; 
-        margin: 8px 0; 
-    }
-
-    .card-img-top {
-        height: 150px; 
-    }
-
-    .card-title {
-        font-size: 1.2rem; 
-    }
-
-    .card-text {
-        font-size: 0.9rem; 
-    }
-
-    .btn-primary {
-        padding: 7px 12px; 
-        font-size: 0.85rem; 
-    } 
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #d6d4d4;
-    overflow-x: hidden;
-}
-
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 1000px;
-    height: 600px;
-    background: #f5f5f5;
-    box-shadow: 0 30px 50px #dbdbdb;
-    overflow: hidden;
-    display: flex; /* Añadido para facilitar el manejo del layout interno */
-    justify-content: center;
-    align-items: center;
-}
-
-.container .slide {
-    position: relative; /* Asegura que los items se posicionen en relación al slide */
-    width: 100%;
-    height: 100%;
-}
-
-.container .slide .item {
-    width: 200px;
-    height: 300px;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    border-radius: 20px;
-    box-shadow: 0 30px 50px #505050;
-    background-position: 50% 50%;
-    background-size: cover;
-    display: inline-block;
-    transition: 0.5s;
-    /* Flex para centrar contenido verticalmente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.slide .item:nth-child(1),
-.slide .item:nth-child(2) {
-    top: 0;
-    left: 0;
-    transform: translate(0, 0);
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.slide .item:nth-child(3) {
-    left: 50%;
-}
-.slide .item:nth-child(4) {
-    left: calc(50% + 220px);
-}
-.slide .item:nth-child(5) {
-    left: calc(50% + 440px);
-}
-
-/* here n = 0, 1, 2, 3,... */
-.slide .item:nth-child(n + 6) {
-    left: calc(50% + 660px);
-    opacity: 0;
-}
-
-.paquete {
-    color: #ffffff;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-weight: bold;
-    font-family: system-ui;
-    text-shadow: 0 0 10px #0f2c31;
-    z-index: 1;
-    margin-left: 20px;
-}
-.paquete h1 {
-    font-size: 30px;
-}
-.paquete p {
-    font-size: 20px;
-}
-
-.item .content {
-    position: absolute;
-    top: 50%;
-    left: 100px;
-    width: 300px;
-    text-align: left;
-    color: #eee;
-    transform: translate(0, -50%);
-    font-family: system-ui;
-    display: none;
-    z-index: 2; /* Asegura que el contenido esté sobre la imagen */
-}
-
-.slide .item:nth-child(2) .content {
-    display: block;
-}
-
-.content .name {
-    font-size: 60px;
-    text-transform: uppercase;
-    font-weight: bold;
-    opacity: 0;
-    text-shadow: 0 0 10px #1b1d1d;
-    animation: animate 1s ease-in-out 1 forwards;
-}
-
-.content .des {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    color: #000;
-    padding: 15px;
-    border-radius: 20px;
-    opacity: 0;
-    background-color: #ffffff91;
-    animation: animate 1s ease-in-out 0.3s 1 forwards;
-}
-
-.content button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    opacity: 0;
-    animation: animate 1s ease-in-out 0.6s 1 forwards;
-}
-
-@keyframes animate {
-    from {
-        opacity: 0;
-        transform: translate(0, 100px);
-        filter: blur(33px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(0);
-        filter: blur(0);
-    }
-}
-
-.button {
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    bottom: 20px;
-    z-index: 3; /* Para que los botones estén siempre visibles */
-}
-
-.button button {
-    width: 40px;
-    height: 35px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    margin: 0 5px;
-    border: 1px solid #000;
-    transition: 0.3s;
-}
-
-.button button:hover {
-    background: #ababab;
-    color: #fff;
-}
-
-
-@media screen and (max-width: 1024px) {
-    .container {
-        height: 500px;
-    }
-
-    .slide .item {
-        width: 150px;
-        height: 250px;
-    }
-
-    .slide .item:nth-child(3) {
-        left: 45%;
-    }
-    .slide .item:nth-child(4) {
-        left: calc(45% + 170px);
-    }
-    .slide .item:nth-child(5) {
-        left: calc(45% + 340px);
-    }
-
-    .slide .item:nth-child(n + 6) {
-        left: calc(45% + 510px);
-    }
-
-    .item .content {
-        left: 50px;
-        width: 250px;
-    }
-
-    .content .name {
-        font-size: 45px;
-    }
-
-    .content .des {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .content button {
-        padding: 8px 15px;
-    }
-
-    .paquete {
-        left: 15px;
-        margin-left: 0;
-    }
-    .paquete h1 {
-        font-size: 24px;
-    }
-    .paquete p {
-        font-size: 16px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        height: 400px;
-        width: 95%;
-    }
-
-    .slide .item {
-        width: 120px;
-        height: 200px;
-        border-radius: 10px;
-    }
-
-    .slide .item:nth-child(3),
-    .slide .item:nth-child(4),
-    .slide .item:nth-child(5),
-    .slide .item:nth-child(n + 6) {
-        left: calc(50% + 150px);
-        opacity: 0;
-        pointer-events: none; 
-    }
-
-    .item .content {
-        left: 20px;
-        width: calc(100% - 40px);
-        text-align: center;
-        transform: translate(0, -50%);
-    }
-
-    .content .name {
-        font-size: 35px;
-    }
-
-    .content .des {
-        font-size: 12px;
-        margin-bottom: 15px;
-    }
-
-    .content button {
-        padding: 6px 12px;
-        font-size: 14px;
-    }
-
-    .paquete {
-        top: 10px;
-        left: 10px;
-        font-size: 14px;
-    }
-    .paquete h1 {
-        font-size: 20px;
-    }
-    .paquete p {
-        font-size: 14px;
-    }
-
-    .button {
-        bottom: 10px;
-    }
-    .button button {
-        width: 30px;
-        height: 25px;
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    body {
-        overflow-x: hidden; 
-        overflow-y: auto;
-    }
-
-    .container {
-        position: relative; 
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        height: 100vh; 
-        max-height: 500px; 
-        box-shadow: none;
-        padding: 10px; 
-    }
-
-    .container .slide {
-        height: 100%;
-        width: 900px;
-    }
-
-    .slide .item {
-        width: 100%;
-        height: 100%;
-        position: absolute; 
-        top: 0;
-        left: 0;
-        transform: none;
-        border-radius: 0;
-        box-shadow: none;
-        margin-bottom: 0;
-    }
-
-    
-    .slide .item:not(:nth-child(2)) { 
-        display: none;
-    }
-    .slide .item:nth-child(2) {
-        display: block;
-    }
-
-
-    
-    .slide .item:nth-child(n + 3) {
-        display: none !important; 
-    }
-
-    .item .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        text-align: center;
-        padding: 15px; 
-        background-color: #ffffffd0; 
-        border-radius: 10px;
-    }
-
-    .content .name {
-        font-size: 28px; 
-        line-height: 1.2; 
-    }
-
-    .content .des {
-        font-size: 11px;
-        padding: 8px;
-        margin-bottom: 10px;
-    }
-
-    .content button {
-        padding: 8px 15px; 
-        font-size: 13px;
-    }
-
-    .paquete {
-        position: relative; 
-        top: auto;
-        left: auto;
-        text-align: center;
-        margin: 15px 0; 
-        padding: 0 10px; 
-    }
-    .paquete h1 {
-        font-size: 20px;
-    }
-    .paquete p {
-        font-size: 14px;
-    }
-
-    .button {
-        position: relative;
-        bottom: auto;
-        margin-top: 20px;
-        padding-bottom: 5px; 
-    }
-    .button button {
-        width: 25px; 
-        height: 25px;
-        font-size: 10px;
-    }
-}
-
-@media screen and (max-width: 375px) { 
-    .container {
-        height: 100vh; 
-        max-height: 450px; 
-        padding: 5px;
-    }
-    .item .content {
-        width: 95%; 
-        padding: 10px;
-    }
-
-    .content .name {
-        font-size: 24px;
-    }
-
-    .content .des {
-        font-size: 10px;
-        padding: 6px;
-    }
-
-    .content button {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    .paquete {
-        margin: 10px 0;
-    }
-    .paquete h1 {
-        font-size: 18px;
-    }
-    .paquete p {
-        font-size: 12px;
-    }
-
-    .button {
-        margin-top: 15px;
-    }
-    .button button {
-        width: 30px;
-        height: 25px;
-        font-size: 11px;
-    }
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Evita el desplazamiento horizontal */
+        }
+
+        /* Colores personalizados de Tailwind */
+        .text-green-pastel-dark {
+            color: #4CAF50; /* Un verde más oscuro para el hover */
+        }
+        .bg-green-pastel-light {
+            background-color: #81C784; /* Un verde más claro */
+        }
+
+        /* Estilos específicos para el slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px; /* Ancho máximo del slider */
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 1rem; /* Bordes redondeados para el contenedor */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+        .slide-wrapper {
+            display: flex;
+            transition: transform 0.7s ease-in-out; /* Transición suave para el deslizamiento */
+        }
+
+        .slide-item {
+            min-width: 100%; /* Cada ítem ocupa el 100% del ancho del contenedor */
+            flex-shrink: 0; /* Evita que los ítems se encojan */
+            height: 600px; /* Altura fija para los ítems del slider */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end; /* Alinea el contenido en la parte inferior */
+            padding: 2rem;
+            color: white;
+            position: relative;
+            border-radius: 1rem; /* Bordes redondeados para cada slide */
+            overflow: hidden;
+        }
+
+        .slide-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* Degradado oscuro en la parte inferior */
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px; /* Ancho máximo para el contenido del texto */
+        }
+
+        .slide-name {
+            font-size: 3rem; /* Tamaño de fuente grande para el nombre */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+        }
+
+        .slide-description {
+            font-size: 1.25rem; /* Tamaño de fuente para la descripción */
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            color: white;
+            border: none;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            font-size: 2rem;
+            border-radius: 9999px; /* Botones circulares */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 10; /* Asegura que los botones estén por encima de los slides */
+        }
+
+        .slider-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.05); /* Efecto de escala al pasar el ratón */
+        }
+
+        .slider-button.prev {
+            left: 1rem;
+        }
+
+        .slider-button.next {
+            right: 1rem;
+        }
+
+        /* Responsividad para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .slide-item {
+                height: 400px; /* Altura reducida para móviles */
+                padding: 1rem;
+            }
+            .slide-name {
+                font-size: 2rem;
+            }
+            .slide-description {
+                font-size: 1rem;
+            }
+            .slider-button {
+                padding: 0.75rem 1rem;
+                font-size: 1.5rem;
+            }
+        }
