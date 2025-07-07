@@ -1,120 +1,197 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden; /* Evita el desplazamiento horizontal */
-        }
 
-        /* Colores personalizados de Tailwind */
-        .text-green-pastel-dark {
-            color: #4CAF50; /* Un verde más oscuro para el hover */
-        }
-        .bg-green-pastel-light {
-            background-color: #81C784; /* Un verde más claro */
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
 
-        /* Estilos específicos para el slider */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            max-width: 1200px; /* Ancho máximo del slider */
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 1rem; /* Bordes redondeados para el contenedor */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-        }
+/* Colores personalizados de Tailwind */
+.text-green-pastel-dark {
+    color: #4CAF50; /* Un verde más oscuro para el hover */
+}
+.bg-green-pastel-light {
+    background-color: #81C784; /* Un verde más claro */
+}
 
-        .slide-wrapper {
-            display: flex;
-            transition: transform 0.7s ease-in-out; /* Transición suave para el deslizamiento */
-        }
+/* Estilos específicos para el slider */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del slider */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 1rem; /* Bordes redondeados para el contenedor */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
 
-        .slide-item {
-            min-width: 100%; /* Cada ítem ocupa el 100% del ancho del contenedor */
-            flex-shrink: 0; /* Evita que los ítems se encojan */
-            height: 600px; /* Altura fija para los ítems del slider */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end; /* Alinea el contenido en la parte inferior */
-            padding: 2rem;
-            color: white;
-            position: relative;
-            border-radius: 1rem; /* Bordes redondeados para cada slide */
-            overflow: hidden;
-        }
+.slide-wrapper {
+    display: flex;
+    transition: transform 0.7s ease-in-out; /* Transición suave para el deslizamiento */
+}
 
-        .slide-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* Degradado oscuro en la parte inferior */
-            z-index: 1;
-        }
+.slide-item {
+    min-width: 100%; /* Cada ítem ocupa el 100% del ancho del contenedor */
+    flex-shrink: 0; /* Evita que los ítems se encojan */
+    height: 600px; /* Altura fija para los ítems del slider */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* Alinea el contenido en la parte inferior */
+    padding: 2rem;
+    color: white;
+    position: relative;
+    border-radius: 1rem; /* Bordes redondeados para cada slide */
+    overflow: hidden;
+}
 
-        .slide-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px; /* Ancho máximo para el contenido del texto */
-        }
+.slide-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* Degradado oscuro en la parte inferior */
+    z-index: 1;
+}
 
-        .slide-name {
-            font-size: 3rem; /* Tamaño de fuente grande para el nombre */
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
-        }
+.slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px; /* Ancho máximo para el contenido del texto */
+}
 
-        .slide-description {
-            font-size: 1.25rem; /* Tamaño de fuente para la descripción */
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
-        }
+.slide-name {
+    font-size: 3rem; /* Tamaño de fuente grande para el nombre */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+}
 
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-            color: white;
-            border: none;
-            padding: 1rem 1.25rem;
-            cursor: pointer;
-            font-size: 2rem;
-            border-radius: 9999px; /* Botones circulares */
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            z-index: 10; /* Asegura que los botones estén por encima de los slides */
-        }
+.slide-description {
+    font-size: 1.25rem; /* Tamaño de fuente para la descripción */
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+}
 
-        .slider-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-            transform: translateY(-50%) scale(1.05); /* Efecto de escala al pasar el ratón */
-        }
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    color: white;
+    border: none;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-size: 2rem;
+    border-radius: 9999px; /* Botones circulares */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* Asegura que los botones estén por encima de los slides */
+}
 
-        .slider-button.prev {
-            left: 1rem;
-        }
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.05); /* Efecto de escala al pasar el ratón */
+}
 
-        .slider-button.next {
-            right: 1rem;
-        }
+.slider-button.prev {
+    left: 1rem;
+}
 
-        /* Responsividad para pantallas pequeñas */
-        @media (max-width: 768px) {
-            .slide-item {
-                height: 400px; /* Altura reducida para móviles */
-                padding: 1rem;
-            }
-            .slide-name {
-                font-size: 2rem;
-            }
-            .slide-description {
-                font-size: 1rem;
-            }
-            .slider-button {
-                padding: 0.75rem 1rem;
-                font-size: 1.5rem;
-            }
-        }
+.slider-button.next {
+    right: 1rem;
+}
+
+---
+
+
+
+
+
+
+/* Media query para Laptops (mayor o igual a 1024px) */
+@media (min-width: 1024px) {
+    .slide-item {
+        height: 600px; /* Altura ideal para laptops */
+        padding: 3rem;
+    }
+
+    .slide-name {
+        font-size: 3.5rem; /* Fuente más grande para pantallas más grandes */
+    }
+
+    .slide-description {
+        font-size: 1.5rem;
+    }
+
+    .slider-button {
+        padding: 1.25rem 1.5rem;
+        font-size: 2.5rem;
+    }
+
+    .slider-button.prev {
+        left: 2rem;
+    }
+
+    .slider-button.next {
+        right: 2rem;
+    }
+}
+
+/* Media query para Tablets (entre 769px y 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+    .slide-item {
+        height: 500px; /* Altura intermedia para tablets */
+        padding: 2.5rem;
+    }
+
+    .slide-name {
+        font-size: 2.75rem;
+    }
+
+    .slide-description {
+        font-size: 1.3rem;
+    }
+
+    .slider-button {
+        padding: 1rem 1.25rem;
+        font-size: 2rem;
+    }
+
+    .slider-button.prev {
+        left: 1.5rem;
+    }
+
+    .slider-button.next {
+        right: 1.5rem;
+    }
+}
+
+/* Media query para Teléfonos Móviles (hasta 768px) */
+@media (max-width: 768px) {
+    .slide-item {
+        height: 400px; /* Altura reducida para móviles */
+        padding: 1rem;
+    }
+
+    .slide-name {
+        font-size: 2rem;
+    }
+
+    .slide-description {
+        font-size: 1rem;
+    }
+
+    .slider-button {
+        padding: 0.75rem 1rem;
+        font-size: 1.5rem;
+    }
+
+    .slider-button.prev {
+        left: 0.5rem;
+    }
+
+    .slider-button.next {
+        right: 0.5rem;
+    }
+}
