@@ -1,47 +1,170 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* --- Base Styles --- */
 body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    margin: 0; /* Asegura que no haya márgenes predeterminados del navegador */
+    line-height: 1.5; /* Mejora la legibilidad general del texto */
+    background-color: #f3f4f6; /* bg-gray-100 */
 }
 
-/* Colores personalizados de Tailwind */
+/* --- Custom Tailwind-like Colors (Consider using Tailwind JIT or PostCSS for actual utility classes) --- */
 .text-green-pastel-dark {
     color: #4CAF50; /* Un verde más oscuro para el hover */
 }
+
 .bg-green-pastel-light {
     background-color: #81C784; /* Un verde más claro */
 }
 
-/* Estilos específicos para el slider */
+/* --- General Container --- */
+.container {
+    max-width: 1200px; /* mx-auto, px-4, etc. */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+}
+
+/* --- Header --- */
+header {
+    width: 100%; /* w-full */
+    background-color: #ffffff; /* bg-white */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    padding: 1rem; /* p-4 */
+    margin-bottom: 2rem; /* mb-8 */
+}
+
+header nav {
+    display: flex; /* flex */
+    justify-content: space-between; /* justify-between */
+    align-items: center; /* items-center */
+}
+
+header nav a {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #374151; /* text-gray-800 */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 0.5rem; /* p-2 */
+    transition: background-color 300ms, color 300ms; /* transition-colors duration-300 */
+}
+
+header nav a:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+header nav ul {
+    display: flex; /* flex */
+    list-style: none; /* Eliminar viñetas */
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 1.5rem; /* Equivalent to space-x-6 */
+}
+
+header nav ul li a {
+    color: #374151; /* text-gray-800 */
+    transition: color 300ms; /* transition-colors duration-300 */
+    font-weight: 500; /* font-medium */
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: #4CAF50; /* hover:text-green-pastel-dark (assuming a similar color) */
+}
+
+/* --- Section Title for Packages --- */
+.section-title {
+    text-align: center; /* text-center */
+    margin-bottom: 3rem; /* mb-12 */
+}
+
+.section-title h1 {
+    font-size: 3rem; /* text-5xl */
+    font-weight: 800; /* font-extrabold */
+    color: #111827; /* text-gray-900 */
+    margin-bottom: 1rem; /* mb-4 */
+    line-height: 1.25; /* leading-tight */
+}
+
+@media (min-width: 768px) { /* md:text-6xl */
+    .section-title h1 {
+        font-size: 3.75rem;
+    }
+}
+
+.section-title p {
+    font-size: 1.25rem; /* text-xl */
+    color: #4b5563; /* text-gray-600 */
+    max-width: 42rem; /* max-w-2xl */
+    margin-left: auto; /* mx-auto */
+    margin-right: auto; /* mx-auto */
+}
+
+@media (min-width: 768px) { /* md:text-2xl */
+    .section-title p {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* --- Slider Specific Styles --- */
 .slider-container {
     position: relative;
     width: 100%;
     max-width: 1200px; /* Ancho máximo del slider */
-    margin: 0 auto;
-    overflow: hidden;
+    margin: 0 auto 4rem auto; /* Added margin-bottom for spacing before footer */
+    overflow: hidden; /* Oculta el contenido que se desborda */
     border-radius: 1rem; /* Bordes redondeados para el contenedor */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    min-height: 300px; /* Minimal height to prevent layout jumps before content loads */
 }
 
 .slide-wrapper {
     display: flex;
     transition: transform 0.7s ease-in-out; /* Transición suave para el deslizamiento */
+    width: 100%; 
 }
 
 .slide-item {
     min-width: 100%; /* Cada ítem ocupa el 100% del ancho del contenedor */
     flex-shrink: 0; /* Evita que los ítems se encojan */
-    height: 600px; /* Altura fija para los ítems del slider */
+    height: 600px; /* Altura fija predeterminada for desktop */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat; /* Asegura que la imagen no se repita */
     display: flex;
     align-items: flex-end; /* Alinea el contenido en la parte inferior */
     padding: 2rem;
     color: white;
     position: relative;
     border-radius: 1rem; /* Bordes redondeados para cada slide */
-    overflow: hidden;
+    overflow: hidden; 
+}
+
+/* Responsive height for slide items */
+@media (max-width: 1024px) {
+    .slide-item {
+        height: 500px; /* Slightly shorter on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-item {
+        height: 400px; /* Even shorter on tablets */
+        padding: 1.5rem; /* Reduce padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-item {
+        height: 300px; /* Smallest height for mobile */
+        padding: 1rem; /* Further reduce padding on mobile */
+    }
 }
 
 .slide-item::before {
@@ -51,147 +174,136 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* Degradado oscuro en la parte inferior */
+    /* Adjust gradient for better visibility if needed */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%); /* Stronger gradient */
     z-index: 1;
+    pointer-events: none; /* Allows interactions with elements behind the overlay */
 }
 
 .slide-content {
     position: relative;
     z-index: 2;
-    max-width: 700px; /* Ancho máximo para el contenido del texto */
+    max-width: 700px; /* Max width for text content */
+    padding-bottom: 1rem; /* Adjust as needed */
 }
 
 .slide-name {
-    font-size: 3rem; /* Tamaño de fuente grande para el nombre */
+    font-size: 3rem; /* Large font size for the name */
     font-weight: 700;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow for better readability */
+    line-height: 1.2; /* Improves readability of large titles */
+}
+
+@media (max-width: 768px) {
+    .slide-name {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-name {
+        font-size: 1.8rem;
+    }
 }
 
 .slide-description {
-    font-size: 1.25rem; /* Tamaño de fuente para la descripción */
+    font-size: 1.25rem; /* Font size for the description */
     line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Completed and improved text shadow */
 }
 
+@media (max-width: 768px) {
+    .slide-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* Slider Navigation Buttons */
 .slider-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     color: white;
     border: none;
-    padding: 1rem 1.25rem;
+    padding: 1rem 0.8rem; /* Vertical and horizontal padding */
     cursor: pointer;
-    font-size: 2rem;
-    border-radius: 9999px; /* Botones circulares */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 10; /* Asegura que los botones estén por encima de los slides */
+    z-index: 10; /* Ensure buttons are above slides */
+    font-size: 1.5rem; /* Icon size */
+    border-radius: 0.5rem; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    display: flex; /* For centering Font Awesome icon */
+    align-items: center;
+    justify-content: center;
 }
 
 .slider-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-    transform: translateY(-50%) scale(1.05); /* Efecto de escala al pasar el ratón */
+    background-color: rgba(0, 0, 0, 0.7); /* Darker on hover */
+    transform: translateY(-50%) scale(1.05); /* Slight scale effect */
+    opacity: 1;
 }
 
 .slider-button.prev {
-    left: 1rem;
+    left: 1rem; /* Position from left edge */
 }
 
 .slider-button.next {
-    right: 1rem;
+    right: 1rem; /* Position from right edge */
 }
 
----
-
-
-
-
-
-
-/* Media query para Laptops (mayor o igual a 1024px) */
-@media (min-width: 1024px) {
-    .slide-item {
-        height: 600px; /* Altura ideal para laptops */
-        padding: 3rem;
-    }
-
-    .slide-name {
-        font-size: 3.5rem; /* Fuente más grande para pantallas más grandes */
-    }
-
-    .slide-description {
-        font-size: 1.5rem;
-    }
-
-    .slider-button {
-        padding: 1.25rem 1.5rem;
-        font-size: 2.5rem;
-    }
-
-    .slider-button.prev {
-        left: 2rem;
-    }
-
-    .slider-button.next {
-        right: 2rem;
-    }
+/* --- Footer --- */
+footer {
+    background-color: #1f2937; /* bg-gray-800 */
+    color: #e5e7eb; /* text-gray-200 */
+    padding: 2rem 1rem; /* p-8, px-4 */
+    text-align: center; /* text-center */
+    margin-top: 4rem; /* Add some space above the footer */
 }
 
-/* Media query para Tablets (entre 769px y 1023px) */
-@media (min-width: 769px) and (max-width: 1023px) {
-    .slide-item {
-        height: 500px; /* Altura intermedia para tablets */
-        padding: 2.5rem;
-    }
-
-    .slide-name {
-        font-size: 2.75rem;
-    }
-
-    .slide-description {
-        font-size: 1.3rem;
-    }
-
-    .slider-button {
-        padding: 1rem 1.25rem;
-        font-size: 2rem;
-    }
-
-    .slider-button.prev {
-        left: 1.5rem;
-    }
-
-    .slider-button.next {
-        right: 1.5rem;
-    }
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on small screens */
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 1.5rem; /* mb-6 */
 }
 
-/* Media query para Teléfonos Móviles (hasta 768px) */
-@media (max-width: 768px) {
-    .slide-item {
-        height: 400px; /* Altura reducida para móviles */
-        padding: 1rem;
+.social-icons {
+    display: flex; /* flex */
+    gap: 1rem; /* space-x-4 */
+    margin-bottom: 1rem; /* Space below social icons before copyright on small screens */
+}
+
+.social-icons a {
+    color: #e5e7eb; /* text-gray-200 */
+    font-size: 1.8rem; /* text-3xl */
+    transition: color 300ms; /* transition-colors duration-300 */
+}
+
+.social-icons a:hover {
+    color: #4CAF50; /* hover:text-green-pastel-light (adjust if needed) */
+}
+
+.copyright {
+    font-size: 0.875rem; /* text-sm */
+    color: #9ca3af; /* text-gray-400 */
+}
+
+/* Responsive Footer */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row; /* Align elements horizontally on larger screens */
+        justify-content: space-between; /* Space out content */
     }
 
-    .slide-name {
-        font-size: 2rem;
-    }
-
-    .slide-description {
-        font-size: 1rem;
-    }
-
-    .slider-button {
-        padding: 0.75rem 1rem;
-        font-size: 1.5rem;
-    }
-
-    .slider-button.prev {
-        left: 0.5rem;
-    }
-
-    .slider-button.next {
-        right: 0.5rem;
+    .social-icons {
+        margin-bottom: 0; /* Remove bottom margin when horizontal */
     }
 }

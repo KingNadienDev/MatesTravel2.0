@@ -4,72 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paquetes Turísticos - MATESTRAVEL</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN para íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/paquetes.css">
-    
 </head>
-<body class="bg-gray-100">
-    <!-- Sección del Encabezado -->
-    <header class="w-full bg-white shadow-md p-4 mb-8">
-        <nav class="container mx-auto flex justify-between items-center">
-            <!-- Logo o Título del Sitio -->
-            <a href="#" class="text-2xl font-bold text-gray-800 rounded-lg p-2 hover:bg-gray-100 transition-colors duration-300">MATESTRAVEL</a>
-            <!-- Menú de Navegación -->
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="text-gray-800 hover:text-green-pastel-dark transition-colors duration-300 font-medium">Inicio</a></li>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html">MATESTRAVEL</a> <ul>
+                <li><a href="index.html">Inicio</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
-        <!-- Sección de Título de Paquetes -->
-        <div class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">Paquetes Turísticos</h1>
-            <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">Descubre el mundo con nuestros paquetes turísticos exclusivos y vive experiencias inolvidables.</p>
+    <main class="container">
+        <div class="section-title">
+            <h1>Paquetes Turísticos</h1>
+            <p>Descubre el mundo con nuestros paquetes turísticos exclusivos y vive experiencias inolvidables.</p>
         </div>
 
-        <!-- Contenedor del Slider -->
         <div class="slider-container">
             <div class="slide-wrapper" id="slideWrapper">
-                <!-- Ítem del Slider: África -->
                 <div class="slide-item" style="background-image: url(imagenes/Africa-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">ÁFRICA</div>
                         <div class="slide-description">¡Tu Aventura Africana te Espera! Prepárate para una experiencia que te cambiará la vida. Nuestro paquete turístico a África te sumerge en el corazón de la naturaleza más salvaje y espectacular del planeta. Imagina amaneceres dorados sobre la sabana, el emocionante rugido de un león en la distancia y la majestuosidad de manadas de elefantes desfilando frente a tus ojos.</div>
                     </div>
                 </div>
-                <!-- Ítem del Slider: EEUU -->
                 <div class="slide-item" style="background-image: url(imagenes/EEUU-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">EEUU</div>
                         <div class="slide-description">¡Descubre la Inmensidad y la Magia de Estados Unidos! Prepárate para un viaje épico a través de la tierra de la libertad y las oportunidades, donde la diversidad de paisajes y culturas te dejará sin aliento. Nuestro paquete turístico a Estados Unidos te invita a explorar desde ciudades vibrantes hasta maravillas naturales que parecen de otro mundo.</div>
                     </div>
                 </div>
-                <!-- Ítem del Slider: París -->
                 <div class="slide-item" style="background-image: url(imagenes/Paris-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">PARÍS</div>
                         <div class="slide-description">¡París te Espera: La Ciudad del Amor y los Sueños! Déjate seducir por la magia incomparable de París, un destino que evoca romance, arte y una sofisticación atemporal. Nuestro paquete turístico te invita a vivir una experiencia inolvidable en la capital francesa, donde cada esquina cuenta una historia y cada momento es digno de una postal.</div>
                     </div>
                 </div>
-                <!-- Ítem del Slider: Japón -->
                 <div class="slide-item" style="background-image: url(imagenes/Japon-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">JAPÓN</div>
                         <div class="slide-description">Japón: Donde el Futuro se Encuentra con la Tradición Milenaria. Embárcate en un viaje inmersivo al corazón de un país fascinante, donde la serenidad de sus templos ancestrales convive en perfecta armonía con la vibrante energía de sus ciudades futuristas. Nuestro paquete turístico a Japón te invita a descubrir una cultura única y una hospitalidad inigualable.</div>
                     </div>
                 </div>
-                <!-- Ítem del Slider: Australia -->
                 <div class="slide-item" style="background-image: url(imagenes/Australia-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">AUSTRALIA</div>
                         <div class="slide-description">¡Australia te Espera: La Aventura de Tu Vida en la Tierra de los Contrastes! Prepárate para un viaje épico a través de paisajes que te dejarán sin aliento y encuentros inolvidables con la vida salvaje. Nuestro paquete turístico a Australia te sumerge en la esencia de la aventura, desde las profundidades del océano hasta el corazón del Outback.</div>
                     </div>
                 </div>
-                <!-- Ítem del Slider: Buenos Aires -->
                 <div class="slide-item" style="background-image: url(imagenes/BSAS-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">BSAS</div>
@@ -78,29 +62,22 @@
                 </div>
             </div>
 
-            <!-- Botones de Navegación del Slider -->
-            <button class="slider-button prev" id="prevButton"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="slider-button next" id="nextButton"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
+            <button class="slider-button prev" id="prevButton" type="button"><i class="fa-solid fa-chevron-left"></i></button> <button class="slider-button next" id="nextButton" type="button"><i class="fa-solid fa-chevron-right"></i></button> </div>
     </main>
 
-    <!-- Sección del Pie de Página -->
-    <footer class="w-full bg-gray-900 text-white p-8 mt-16 rounded-t-xl shadow-inner">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-           
-            <!-- Redes Sociales -->
-            <div class="flex space-x-6 text-2xl">
-                <a href="#" class="text-green-400 hover:text-white transition-colors duration-300"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-green-400 hover:text-white transition-colors duration-300"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-green-400 hover:text-white transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-green-400 hover:text-white transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+    <footer>
+        <div class="container footer-content">
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
-        <div class="text-center text-green-500 mt-8 pt-4 border-t border-gray-700">
+        <div class="copyright">
             &copy; 2025 MATESTRAVEL. Todos los derechos reservados.
         </div>
     </footer>
- <script src="javascript/paquetes.js"></script>
+    <script src="javascript/paquetes.js"></script>
 </body>
 </html>
-

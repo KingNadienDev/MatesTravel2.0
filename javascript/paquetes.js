@@ -1,41 +1,62 @@
- // Lógica del Slider
-        document.addEventListener('DOMContentLoaded', () => {
-            const slideWrapper = document.getElementById('slideWrapper');
-            const slides = document.querySelectorAll('.slide-item');
-            const prevButton = document.getElementById('prevButton');
-            const nextButton = document.getElementById('nextButton');
-            let currentIndex = 0;
-            const totalSlides = slides.length;
+document.addEventListener('DOMContentLoaded', () => {
+    const slideWrapper = document.getElementById('slideWrapper');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const slides = document.querySelectorAll('.slide-item');
 
-            // Función para mostrar el slide actual
-            const showSlide = (index) => {
-                // Asegura que el índice esté dentro de los límites
-                if (index >= totalSlides) {
-                    currentIndex = 0; // Vuelve al primer slide si se supera el límite
-                } else if (index < 0) {
-                    currentIndex = totalSlides - 1; // Va al último slide si se retrocede desde el primero
-                } else {
-                    currentIndex = index;
-                }
-                // Calcula la cantidad de desplazamiento necesaria
-                const offset = -currentIndex * 100; // Desplaza el 100% del ancho del slide
-                slideWrapper.style.transform = `translateX(${offset}%)`;
-            };
+    let currentIndex = 0;
+    const totalSlides = slides.length;
 
-            // Función para ir al slide siguiente
-            const nextSlide = () => {
-                showSlide(currentIndex + 1);
-            };
+    // Función para actualizar la posición del carrusel
+    function updateSlider() {
+        // Obtenemos el ancho actual de una sola diapositiva visible.
+        // Usamos slides[0].clientWidth para obtener el ancho real en píxeles.
+        // Esto es más robusto que solo usar porcentajes fijos si hay renderizados sub-píxel.
+        const slideWidth = slides[0].clientWidth; // Obtiene el ancho calculado de la primera slide
+        const offset = -currentIndex * slideWidth; // Calcula el desplazamiento en píxeles
 
-            // Función para ir al slide anterior
-            const prevSlide = () => {
-                showSlide(currentIndex - 1);
-            };
+        slideWrapper.style.transform = `translateX(${offset}px)`; // Aplica la transformación en píxeles
+    }
 
-            // Añade los event listeners a los botones
-            nextButton.addEventListener('click', nextSlide);
-            prevButton.addEventListener('click', prevSlide);
+    // Asegurarse de que el slider se ajuste si el tamaño de la ventana cambia
+    window.addEventListener('resize', updateSlider);
 
-            // Inicializa el slider mostrando el primer slide
-            showSlide(currentIndex);
-        });
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Vuelve a la primera slide
+        }
+        updateSlider();
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalSlides - 1; // Va a la última slide
+        }
+        updateSlider();
+    });
+
+    // Inicializa el carrusel
+    updateSlider();
+
+    // Opcional: Deslizamiento automático
+    
+    const autoSlideInterval = 5000;
+    let slideTimer = setInterval(() => {
+        nextButton.click();
+    }, autoSlideInterval);
+
+    slideWrapper.addEventListener('mouseenter', () => {
+        clearInterval(slideTimer);
+    });
+
+    slideWrapper.addEventListener('mouseleave', () => {
+        slideTimer = setInterval(() => {
+            nextButton.click();
+        }, autoSlideInterval);
+    });
+    
+});
