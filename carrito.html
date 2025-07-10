@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Carrito de Compras - MATESTRAVEL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/paquetes.css"> <link rel="stylesheet" href="css/carrito.css"> </head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html">MATESTRAVEL</a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="paquetes.html">Paquetes</a></li> </ul>
+        </nav>
+    </header>
+
+    <main class="container cart-page">
+        <div class="section-title">
+            <h1>Tu Carrito de Compras</h1>
+            <p>Revisa los paquetes turísticos que has añadido a tu carrito.</p>
+        </div>
+
+        <div id="cart-items-container">
+            <p id="empty-cart-message" style="text-align: center;">Tu carrito está vacío.</p>
+        </div>
+
+        <div class="cart-summary" id="cart-summary" style="display: none;">
+            <p>Total: <span id="cart-total"></span> USD</p>
+            <div class="cart-actions">
+                <button id="clear-cart-btn" class="secondary-btn">Vaciar Carrito</button>
+                <button id="checkout-btn" class="primary-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 MATESTRAVEL. Todos los derechos reservados.
+        </div>
+    </footer>
+    <script src="javascript/cart.js"></script> <script>
+        // Script específico para la página del carrito
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartTotalSpan = document.getElementById('cart-total');
+            const cartSummaryDiv = document.getElementById('cart-summary');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const clearCartBtn = document.getElementById('clear-cart-btn');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            function displayCart() {
+                const cart = getCart(); // Obtiene el carrito del localStorage
+                cartItemsContainer.innerHTML = ''; // Limpia el contenido actual
+
+                if (cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                    cartSummaryDiv.style.display = 'none';
+                    return;
+                } else {
+                    emptyCartMessage.style.display = 'none';
+                    cartSummaryDiv.style.display = 'block';
+                }
+
+                let total = 0;
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('cart-item');
+                    itemElement.innerHTML = `
+                        <span>${item.name} (x${item.quantity})</span>
+                        <span>$${(item.price * item.quantity).toFixed(2)} USD</span>
+                        <button class="remove-item-btn" data-item-name="${item.name}"><i class="fas fa-trash-alt"></i></button>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                    total += item.price * item.quantity;
+                });
+
+                cartTotalSpan.textContent = total.toFixed(2);
+
+                // Añadir event listeners para los botones de eliminar
+                document.querySelectorAll('.remove-item-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const itemName = event.currentTarget.dataset.itemName;
+                        removeItemFromCart(itemName);
+                        displayCart(); // Vuelve a renderizar el carrito
+                    });
+                });
+            }
+
+            // Event listener para vaciar el carrito
+            clearCartBtn.addEventListener('click', () => {
+                if (confirm('¿Estás seguro de que quieres vaciar tu carrito?')) {
+                    clearCart();
+                    displayCart();
+                }
+            });
+
+            // Event listener para finalizar compra (simulado)
+            checkoutBtn.addEventListener('click', () => {
+                alert('¡Felicidades! Tu compra ha sido procesada (simulado). Redireccionando a la página de confirmación...');
+                clearCart(); // Vaciamos el carrito después de la "compra"
+                window.location.href = 'confirmacion.html'; // Redirige a una página de confirmación
+            });
+
+            // Mostrar el carrito cuando la página cargue
+            displayCart();
+        });
+    </script>
+</body>
+</html>

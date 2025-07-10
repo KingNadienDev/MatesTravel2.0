@@ -6,13 +6,15 @@
     <title>Paquetes Turísticos - MATESTRAVEL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/paquetes.css">
+    <link rel="stylesheet" href="css/popup.css">
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="index.html">MATESTRAVEL</a> <ul>
+            <a href="index.html">MATESTRAVEL</a>
+            <ul>
                 <li><a href="index.html">Inicio</a></li>
-            </ul>
+                <li><a href="carrito.html">Ver Carrito</a></li> </ul>
         </nav>
     </header>
 
@@ -28,41 +30,121 @@
                     <div class="slide-content">
                         <div class="slide-name">ÁFRICA</div>
                         <div class="slide-description">¡Tu Aventura Africana te Espera! Prepárate para una experiencia que te cambiará la vida. Nuestro paquete turístico a África te sumerge en el corazón de la naturaleza más salvaje y espectacular del planeta. Imagina amaneceres dorados sobre la sabana, el emocionante rugido de un león en la distancia y la majestuosidad de manadas de elefantes desfilando frente a tus ojos.</div>
+                        <button class="open-popup-btn" data-target="popup-africa">Ver Paquete</button>
                     </div>
                 </div>
                 <div class="slide-item" style="background-image: url(imagenes/EEUU-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">EEUU</div>
                         <div class="slide-description">¡Descubre la Inmensidad y la Magia de Estados Unidos! Prepárate para un viaje épico a través de la tierra de la libertad y las oportunidades, donde la diversidad de paisajes y culturas te dejará sin aliento. Nuestro paquete turístico a Estados Unidos te invita a explorar desde ciudades vibrantes hasta maravillas naturales que parecen de otro mundo.</div>
+                        <button class="open-popup-btn" data-target="popup-eeuu">Ver Paquete</button>
                     </div>
                 </div>
                 <div class="slide-item" style="background-image: url(imagenes/Paris-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">PARÍS</div>
                         <div class="slide-description">¡París te Espera: La Ciudad del Amor y los Sueños! Déjate seducir por la magia incomparable de París, un destino que evoca romance, arte y una sofisticación atemporal. Nuestro paquete turístico te invita a vivir una experiencia inolvidable en la capital francesa, donde cada esquina cuenta una historia y cada momento es digno de una postal.</div>
+                        <button class="open-popup-btn" data-target="popup-paris">Ver Paquete</button>
                     </div>
                 </div>
                 <div class="slide-item" style="background-image: url(imagenes/Japon-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">JAPÓN</div>
                         <div class="slide-description">Japón: Donde el Futuro se Encuentra con la Tradición Milenaria. Embárcate en un viaje inmersivo al corazón de un país fascinante, donde la serenidad de sus templos ancestrales convive en perfecta armonía con la vibrante energía de sus ciudades futuristas. Nuestro paquete turístico a Japón te invita a descubrir una cultura única y una hospitalidad inigualable.</div>
+                        <button class="open-popup-btn" data-target="popup-japon">Ver Paquete</button>
                     </div>
                 </div>
                 <div class="slide-item" style="background-image: url(imagenes/Australia-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">AUSTRALIA</div>
                         <div class="slide-description">¡Australia te Espera: La Aventura de Tu Vida en la Tierra de los Contrastes! Prepárate para un viaje épico a través de paisajes que te dejarán sin aliento y encuentros inolvidables con la vida salvaje. Nuestro paquete turístico a Australia te sumerge en la esencia de la aventura, desde las profundidades del océano hasta el corazón del Outback.</div>
+                        <button class="open-popup-btn" data-target="popup-australia">Ver Paquete</button>
                     </div>
                 </div>
                 <div class="slide-item" style="background-image: url(imagenes/BSAS-p.jpg)">
                     <div class="slide-content">
                         <div class="slide-name">BSAS</div>
                         <div class="slide-description">Buenos Aires al Ritmo del Tango: Un Viaje Apasionado. Sumérgete en el alma de Buenos Aires con un paquete turístico que celebra la pasión del tango. Desde las milongas más auténticas hasta los espectáculos más deslumbrantes, este viaje te invita a vivir la tradición argentina en cada paso.</div>
+                        <button class="open-popup-btn" data-target="popup-bsas">Ver Paquete</button>
                     </div>
                 </div>
             </div>
 
-            <button class="slider-button prev" id="prevButton" type="button"><i class="fa-solid fa-chevron-left"></i></button> <button class="slider-button next" id="nextButton" type="button"><i class="fa-solid fa-chevron-right"></i></button> </div>
+            <button class="slider-button prev" id="prevButton" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-button next" id="nextButton" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <div id="popup-africa" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a África: Safari Inolvidable</h3>
+                    <p>Sumérgete en la vida salvaje y la cultura vibrante de África con nuestro exclusivo safari. Incluye alojamiento de lujo, guías expertos y avistamientos de fauna impresionantes.</p>
+                    <p class="price">Precio: $4500 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="África: Safari Inolvidable" data-package-price="4500">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-eeuu" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a EEUU: Costa a Costa</h3>
+                    <p>Explora la diversidad de Estados Unidos, desde las luces de Nueva York hasta los paisajes desérticos del Oeste. Un viaje lleno de contrastes y experiencias únicas.</p>
+                    <p class="price">Precio: $3800 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="EEUU: Costa a Costa" data-package-price="3800">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-paris" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a París: Romance y Cultura</h3>
+                    <p>Descubre la Ciudad del Amor con un itinerario diseñado para parejas y amantes de la cultura. Visita la Torre Eiffel, el Louvre y disfruta de la gastronomía francesa.</p>
+                    <p class="price">Precio: $2500 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="París: Romance y Cultura" data-package-price="2500">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-japon" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a Japón: Tradición y Vanguardia</h3>
+                    <p>Un viaje fascinante donde la tradición milenaria se encuentra con la tecnología futurista. Explora templos antiguos, jardines zen y la vibrante vida de Tokio.</p>
+                    <p class="price">Precio: $5200 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="Japón: Tradición y Vanguardia" data-package-price="5200">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-australia" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a Australia: Aventura en el Outback</h3>
+                    <p>Descubre la asombrosa biodiversidad de Australia, desde la Gran Barrera de Coral hasta el misterioso Outback. Encuéntrate con la fauna única de este continente.</p>
+                    <p class="price">Precio: $4900 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="Australia: Aventura en el Outback" data-package-price="4900">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-bsas" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a Buenos Aires: Ritmo de Tango</h3>
+                    <p>Sumérgete en la pasión de Buenos Aires, la cuna del tango. Disfruta de shows en vivo, clases de baile y explora los barrios más emblemáticos de la capital argentina.</p>
+                    <p class="price">Precio: $1800 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="Buenos Aires: Ritmo de Tango" data-package-price="1800">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -79,5 +161,5 @@
         </div>
     </footer>
     <script src="javascript/paquetes.js"></script>
-</body>
+    <script src="javascript/cart.js"></script> <script src="javascript/popup.js"></script> </body>
 </html>
