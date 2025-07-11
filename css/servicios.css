@@ -8,45 +8,63 @@ body {
     color: #333;
 }
 
-/* --- ESTILOS DEL ENCABEZADO (HEADER) --- */
+/* --- General Container --- */
+.container {
+    max-width: 1200px; /* mx-auto, px-4, etc. */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+}
+
+/* --- Header --- */
 header {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333; /* Texto oscuro para contrastar con el fondo blanco */
-    padding: 1rem 2rem; /* Añadimos padding a los lados */
-    display: flex; /* Para controlar la alineación de H1 y Nav */
-    justify-content: space-between; /* H1 a la izquierda, Nav a la derecha */
-    align-items: center; /* Centra verticalmente H1 y Nav */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra para el header */
+    width: 100%; /* w-full */
+    background-color: #ffffff; /* bg-white */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    padding: 1rem; /* p-4 */
+    margin-bottom: 2rem; /* mb-8 */
 }
 
-header h1 {
+header nav {
+    display: flex; /* flex */
+    justify-content: space-between; /* justify-between */
+    align-items: center; /* items-center */
+}
+
+header nav a {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #374151; /* text-gray-800 */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 0.5rem; /* p-2 */
+    transition: background-color 300ms, color 300ms; /* transition-colors duration-300 */
+}
+
+header nav a:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+header nav ul {
+    display: flex; /* flex */
+    list-style: none; /* Eliminar viñetas */
     margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    color: #28a745; /* H1 en tono verde principal */
-}
-
-nav ul {
-    list-style: none;
     padding: 0;
-    margin: 0; /* Eliminar margen para una alineación precisa */
-    display: flex;
-    gap: 20px; /* Espacio entre los elementos del menú */
 }
 
-nav ul li a {
-    color: #555; /* Color de texto normal de los enlaces */
+header nav ul li {
+    margin-left: 1.5rem; /* Equivalent to space-x-6 */
+}
+
+header nav ul li a {
+    color: #374151; /* text-gray-800 */
+    transition: color 300ms; /* transition-colors duration-300 */
+    font-weight: 500; /* font-medium */
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover {
-    background-color: #28a745; /* Verde principal al pasar el ratón */
-    color: white; /* Texto blanco al pasar el ratón */
+header nav ul li a:hover {
+    color: #4CAF50; /* hover:text-green-pastel-dark (assuming a similar color) */
 }
 
 /* --- ESTILOS PARA EL MAIN CON IMAGEN DE FONDO --- */

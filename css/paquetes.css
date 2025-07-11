@@ -260,40 +260,31 @@ header nav ul li a:hover {
 
 /* --- Footer --- */
 footer {
-    background-color: #1f2937; /* bg-gray-800 */
-    color: #e5e7eb; /* text-gray-200 */
-    padding: 2rem 1rem; /* p-8, px-4 */
-    text-align: center; /* text-center */
-    margin-top: 4rem; /* Add some space above the footer */
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically on small screens */
-    align-items: center;
-    justify-content: center; /* Center horizontally */
-    margin-bottom: 1.5rem; /* mb-6 */
+    background-color: #343a40; /* Gris oscuro para el fondo del footer */
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
 }
 
 .social-icons {
-    display: flex; /* flex */
-    gap: 1rem; /* space-x-4 */
-    margin-bottom: 1rem; /* Space below social icons before copyright on small screens */
+    margin-bottom: 1rem;
 }
 
 .social-icons a {
-    color: #e5e7eb; /* text-gray-200 */
-    font-size: 1.8rem; /* text-3xl */
-    transition: color 300ms; /* transition-colors duration-300 */
+    color: white;
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #4CAF50; /* hover:text-green-pastel-light (adjust if needed) */
+    color: #28a745; /* Verde principal al pasar el ratón */
 }
 
-.copyright {
-    font-size: 0.875rem; /* text-sm */
-    color: #9ca3af; /* text-gray-400 */
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #bbb;
 }
 
 /* Responsive Footer */
