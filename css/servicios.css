@@ -139,6 +139,7 @@ header nav ul li a:hover {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
         padding: 3rem 5%;
+        max-width: 1400px;
     }
 
     .nuestros-servicios h1 {
