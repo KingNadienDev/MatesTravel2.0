@@ -21,6 +21,13 @@
 <link rel="stylesheet" href="./css/estilosnadien.css">
 <link rel="stylesheet" href="./css/estilos.css">
 
+<!--CSS servicios-->
+<link rel="stylesheet" href="css/servicios.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!--CSS paquetes-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/paquetes.css">
+    <link rel="stylesheet" href="css/popup.css">
 </head>
 <body>
 
@@ -44,7 +51,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a href="servicios.html" class="dropdown-item "><i class="fa-solid fa-plane"></i> Servicios</a>
-                            <a href="paquetes.html" class="dropdown-item "><i class="fa-solid fa-boxes-packing"></i> Paquetes</a>
+                            <a href="#paquetes" class="dropdown-item "><i class="fa-solid fa-boxes-packing"></i> Paquetes</a>
                             <a href="carrito.html" class="dropdown-item "><i class="fa-solid fa-shopping-cart"></i> Carrito</a>
                             <a href="#" id="openModalLink" class="dropdown-item"><i class="fa-solid fa-address-book"></i> Contacto</a>
                         </div>
@@ -58,7 +65,7 @@
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100" src="imagenes/land-a.jpg" alt="Persona con mochila mirando un paisaje montañoso nevado">
+                <img class="w-100" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Persona con mochila mirando un paisaje montañoso nevado">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Viajes Y Tours</h4>                          
@@ -68,7 +75,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="imagenes/land-b.jpg" alt="Grupo de personas caminando por un sendero montañoso con vistas a un lago">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Grupo de personas caminando por un sendero montañoso con vistas a un lago">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Viajes Y Tours</h4>
@@ -90,7 +97,182 @@
     </div>
 </div>
 
-<br>
+<br><br> <hr>
+<!--Section Servicios-->
+
+<main class="main-content">
+        <section class="nuestros-servicios">
+            <h1>Nuestros Servicios</h1>
+
+            <div class="servicio-item">
+                <i class="fas fa-plane-departure"></i>
+                <h2>Paquetes Turísticos</h2>
+                <p>Descubre nuestros paquetes diseñados a medida para tus sueños de viaje, con destinos emocionantes y experiencias inolvidables.</p>
+            </div>
+
+            <div class="servicio-item">
+                <i class="fas fa-ticket-alt"></i>
+                <h2>Vuelos y Alojamientos</h2>
+                <p>Encuentra las mejores ofertas en vuelos y selecciona alojamientos cómodos para cada destino, garantizando una estancia placentera.</p>
+            </div>
+
+            <div class="servicio-item">
+                <i class="fas fa-route"></i>
+                <h2>Tours y Excursiones</h2>
+                <p>Explora cada rincón con nuestros tours y excursiones guiadas, sumergiéndote en la cultura y belleza de cada lugar.</p>
+            </div>
+
+            <div class="servicio-item">
+                <i class="fas fa-headset"></i>
+                <h2>Asistencia 24/7</h2>
+                <p>Viaja con tranquilidad sabiendo que cuentas con nuestro equipo de asistencia disponible las 24 horas del día, los 7 días de la semana.</p>
+            </div>
+
+            <div class="servicio-item">
+                <i class="fas fa-car"></i>
+                <h2>Alquiler de Vehículos</h2>
+                <p>Muévete con total libertad. Ofrecemos una amplia gama de vehículos para alquilar, adaptándose a tus necesidades y presupuesto.</p>
+            </div>
+
+            <div class="servicio-item">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Seguro de Viajero</h2>
+                <p>Protege tu aventura con nuestro seguro de viajero integral, que te cubre ante cualquier imprevisto durante tu viaje.</p>
+            </div>
+        </section>
+    </main>
+    <br><br><hr>
+<!--Section Paquetes-->
+
+<main class="container" id="paquetes">
+        <div class="section-title">
+            <h1>Paquetes Turísticos</h1>
+            <p>Descubre el mundo con nuestros paquetes turísticos exclusivos y vive experiencias inolvidables.</p>
+        </div>
+
+        <div class="slider-container">
+            <div class="slide-wrapper" id="slideWrapper">
+                <div class="slide-item" style="background-image: url(imagenes/Africa-p.jpg)">
+                    <div class="slide-content">
+                        <div class="slide-name">ÁFRICA</div>
+                        <div class="slide-description">¡Tu Aventura Africana te Espera! Prepárate para una experiencia que te cambiará la vida. Nuestro paquete turístico a África te sumerge en el corazón de la naturaleza más salvaje y espectacular del planeta. Imagina amaneceres dorados sobre la sabana, el emocionante rugido de un león en la distancia y la majestuosidad de manadas de elefantes desfilando frente a tus ojos.</div>
+                        <button class="open-popup-btn" data-target="popup-africa">Ver Paquete</button>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(imagenes/EEUU-p.jpg)">
+                    <div class="slide-content">
+                        <div class="slide-name">EEUU</div>
+                        <div class="slide-description">¡Descubre la Inmensidad y la Magia de Estados Unidos! Prepárate para un viaje épico a través de la tierra de la libertad y las oportunidades, donde la diversidad de paisajes y culturas te dejará sin aliento. Nuestro paquete turístico a Estados Unidos te invita a explorar desde ciudades vibrantes hasta maravillas naturales que parecen de otro mundo.</div>
+                        <button class="open-popup-btn" data-target="popup-eeuu">Ver Paquete</button>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(imagenes/Paris-p.jpg)">
+                    <div class="slide-content">
+                        <div class="slide-name">PARÍS</div>
+                        <div class="slide-description">¡París te Espera: La Ciudad del Amor y los Sueños! Déjate seducir por la magia incomparable de París, un destino que evoca romance, arte y una sofisticación atemporal. Nuestro paquete turístico te invita a vivir una experiencia inolvidable en la capital francesa, donde cada esquina cuenta una historia y cada momento es digno de una postal.</div>
+                        <button class="open-popup-btn" data-target="popup-paris">Ver Paquete</button>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(imagenes/Japon-p.jpg)">
+                    <div class="slide-content">
+                        <div class="slide-name">JAPÓN</div>
+                        <div class="slide-description">Japón: Donde el Futuro se Encuentra con la Tradición Milenaria. Embárcate en un viaje inmersivo al corazón de un país fascinante, donde la serenidad de sus templos ancestrales convive en perfecta armonía con la vibrante energía de sus ciudades futuristas. Nuestro paquete turístico a Japón te invita a descubrir una cultura única y una hospitalidad inigualable.</div>
+                        <button class="open-popup-btn" data-target="popup-japon">Ver Paquete</button>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(imagenes/Australia-p.jpg)">
+                    <div class="slide-content">
+                        <div class="slide-name">AUSTRALIA</div>
+                        <div class="slide-description">¡Australia te Espera: La Aventura de Tu Vida en la Tierra de los Contrastes! Prepárate para un viaje épico a través de paisajes que te dejarán sin aliento y encuentros inolvidables con la vida salvaje. Nuestro paquete turístico a Australia te sumerge en la esencia de la aventura, desde las profundidades del océano hasta el corazón del Outback.</div>
+                        <button class="open-popup-btn" data-target="popup-australia">Ver Paquete</button>
+                    </div>
+                </div>
+                <div class="slide-item" style="background-image: url(imagenes/BSAS-p.jpg)">
+                    <div class="slide-content">
+                        <div class="slide-name">BSAS</div>
+                        <div class="slide-description">Buenos Aires al Ritmo del Tango: Un Viaje Apasionado. Sumérgete en el alma de Buenos Aires con un paquete turístico que celebra la pasión del tango. Desde las milongas más auténticas hasta los espectáculos más deslumbrantes, este viaje te invita a vivir la tradición argentina en cada paso.</div>
+                        <button class="open-popup-btn" data-target="popup-bsas">Ver Paquete</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-button prev" id="prevButton" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-button next" id="nextButton" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <div id="popup-africa" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a África: Safari Inolvidable</h3>
+                    <p>10 dias - 8 noches - Alojamiento hotel 3 estrellas c/desayuno incluye una excursion a las estepas a ver animales salvajes</p>
+                    <p class="price">Precio: $4500 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="África: Safari Inolvidable" data-package-price="4500">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-eeuu" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a EEUU: Costa a Costa</h3>
+                    <p>10 dias - 8 noches - Alojamiento hotel 4 estrellas c/desayuno incluye una excursion a la estatua de la libertad y al Empire State</p>
+                    <p class="price">Precio: $3800 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="EEUU: Costa a Costa" data-package-price="3800">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-paris" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a París: Romance y Cultura</h3>
+                    <p>10 dias - 8 noches - Alojamiento hotel 3 estrellas c/desayuno incluye una excursion a la Torre Eiffel y a la Fontana DiTrevvi</p>
+                    <p class="price">Precio: $2500 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="París: Romance y Cultura" data-package-price="2500">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-japon" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a Japón: Tradición y Vanguardia</h3>
+                    <p>14 dias - 12 noches - Alojamiento hotel 5 estrellas c/desayuno incluye una excursion al parque Japones y pasear por los templos</p>
+                    <p class="price">Precio: $5200 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="Japón: Tradición y Vanguardia" data-package-price="5200">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-australia" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a Australia: Aventura en el Outback</h3>
+                    <p>14 dias - 12 noches - Alojamiento hotel 4 estrellas c/desayuno incluye una excursion a la reserva de Canguros enanos</p>
+                    <p class="price">Precio: $4900 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="Australia: Aventura en el Outback" data-package-price="4900">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+
+        <div id="popup-bsas" class="popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <section>
+                    <h3>Paquete a Buenos Aires: Ritmo de Tango</h3>
+                    <p>10 dias - 8 noches - Alojamiento hotel 5 estrellas c/desayuno incluye una excursion al obelisco y a una estancia a degustar una asado tremendo con ensaladas</p>
+                    <p class="price">Precio: $1800 USD</p>
+                    <button class="add-to-cart-btn" data-package-name="Buenos Aires: Ritmo de Tango" data-package-price="1800">Añadir al Carrito</button>
+                </section>
+            </div>
+        </div>
+    </main>
+    <br><br> <hr>
 
 <div class="container-fluid py-5">
     <div class="container pt-5 pb-3">
@@ -154,6 +336,10 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="./javascript/contactomodal.js"></script>
+<!--Script Paquetes-->
+    <script src="javascript/paquetes.js"></script>
+    <script src="javascript/cart.js"></script> <script src="javascript/popup.js"></script>
+    <script src="script.js"></script>
 
 <div id="modalOverlay">
     <div class="custom-modal">
