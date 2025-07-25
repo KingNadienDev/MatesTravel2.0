@@ -84,6 +84,7 @@ body {
 
 .omar {
     color: aqua;
+    font-size: 20px;
 }
 
 /* Media query para pantallas muy pequeñas */
@@ -96,4 +97,9 @@ body {
     .link-group {
         min-width: 100px; /* Ajuste el ancho mínimo para pantallas pequeñas */
     }
+}
+
+.nadien {
+    color: aqua;
+    font-size: 30px;
 }
