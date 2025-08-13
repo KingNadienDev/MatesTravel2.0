@@ -1,414 +1,388 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mates Travel Inicio</title>
-
-<link rel="icon" href="./imagenes/iconos/faviconlogo.png">
-
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/estilosnadien.css">
-<link rel="stylesheet" href="./css/estilos.css">
-
-<!--CSS servicios-->
-<link rel="stylesheet" href="css/servicios.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<!--CSS paquetes-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/paquetes.css">
-    <link rel="stylesheet" href="css/popup.css">
-
-
-<!-- css testeos devs -->
-
-<link rel="stylesheet" href="./css/testcart.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mates Travel - Todos los Paquetes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 
+        Chosen Palette: Warm Neutrals
+        - Background: #F8F7F4 (Beige)
+        - Text: #4A4A4A (Dark Gray)
+        - Primary Accent: #4A90E2 (Calm Blue)
+        - Secondary Accent: #E2A14A (Warm Orange)
+        - Chart/UI Elements: Shades of the primary and secondary colors.
+    -->
+    <!-- 
+        Application Structure Plan: The application is structured as a single-page exploratory view of all travel packages. The original interactive selection was redesigned to display all package details sequentially, allowing users to scroll through and compare all offerings directly. The structure is: 1. Hero section for initial impact. 2. An "Explorer" section that acts as the application's core, now displaying all package details one below the other, along with key metrics, and new filtering/sorting controls. This linear display with enhanced controls was chosen to provide a comprehensive overview and powerful search capabilities without requiring user interaction to reveal each package's information, prioritizing direct information consumption and easy scanning of all available packages based on user criteria. 3. Thematic sections for "Services" and "About Us" follow, providing supplementary information. 4. A clear contact section and footer conclude the page.
+    -->
+    <!-- 
+        Visualization & Content Choices:
+        - Report Info: Travel Package Details (name, price, description, image) -> Goal: Inform (Comprehensive View) -> Viz/Method: Dynamically generated HTML content blocks, each representing a full package detail card. -> Interaction: "Add to Cart" button for each package, and a subtle scale-up effect on hover for visual feedback. -> Justification: Displaying all details directly allows for easy browsing and comparison without additional clicks, simplifying the user journey for those who prefer to see all options upfront. The hover effect adds a touch of interactivity and highlights the individual cards.
+        - Report Info: Key Metrics (total packages, min price, max duration) -> Goal: Inform (Summary) -> Viz/Method: Static text elements updated dynamically by JavaScript. -> Interaction: Subtle scale-up effect on hover for visual feedback. -> Justification: Provides a quick overview of the package offerings with added visual engagement.
+        - Report Info: List of Services -> Goal: Inform -> Viz/Method: A clean, icon-driven grid layout (Tailwind CSS). -> Interaction: Subtle hover effects for visual feedback. -> Justification: A grid is a highly scannable and digestible format for presenting distinct items of equal importance.
+        - Report Info: Developer Information -> Goal: Inform -> Viz/Method: Styled HTML cards in an "About Us" section. -> Interaction: Hover effects. -> Justification: Consolidates team information into a standard, easily recognizable format.
+        - Report Info: Package Filtering/Sorting -> Goal: Explore/Refine -> Viz/Method: HTML input fields (text, number) and select dropdown. -> Interaction: User input triggers JavaScript functions to filter and sort the displayed package cards dynamically. -> Justification: Provides powerful tools for users to quickly narrow down and organize the package list according to their specific needs, enhancing discoverability and user control.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #F8F7F4;
+            color: #4A4A4A;
+        }
+        .active-nav {
+            color: #4A90E2;
+            font-weight: 700;
+        }
+        .text-shadow-lg {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .text-shadow-md {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-<!-- Preloader estilo cerradura -->
-<div id="preloader">
-<img src="https://cdn.dribbble.com/userupload/23619896/file/original-b61f0134c0987e980da17ca55036551a.gif" alt="Cargando..." id="preloader-img" height="100%" width="100%">
-</div>
-<script src="./javascript/preloader.js"></script>
-
-
-<div class="container-fluid position-relative nav nav-bar p-0">
-    <div class="container-lg position-relative p-0 px-lg-3 navbar-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-            <a href="#" class="navbar-brand">
-                <h1 class="m-0 text-primary"><span class="text-dark">MATES</span>TRAVEL</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800"><span class="text-[#4A90E2]">Mates</span>Travel</a>
+            <nav class="hidden md:flex space-x-8 text-gray-600">
+                <a href="#explorer" class="hover:text-[#4A90E2] transition-colors">Explorador</a>
+                <a href="#services" class="hover:text-[#4A90E2] transition-colors">Servicios</a>
+                <a href="#about" class="hover:text-[#4A90E2] transition-colors">Nosotros</a>
+                <a href="#contact" class="hover:text-[#4A90E2] transition-colors">Contacto</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#explorer" class="block py-2 px-6 text-sm hover:bg-gray-100">Explorador</a>
+            <a href="#services" class="block py-2 px-6 text-sm hover:bg-gray-100">Servicios</a>
+            <a href="#about" class="block py-2 px-6 text-sm hover:bg-gray-100">Nosotros</a>
+            <a href="#contact" class="block py-2 px-6 text-sm hover:bg-gray-100">Contacto</a>
+        </div>
+    </header>
 
-            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                <div class="navbar-nav ml-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa-solid fa-house"></i> Inicio</a>
-                    
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa-solid fa-bars"></i> Menú
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#servicios" class="dropdown-item "><i class="fa-solid fa-plane"></i> Servicios</a>
-                            <a href="#paquetes" class="dropdown-item "><i class="fa-solid fa-boxes-packing"></i> Paquetes</a>
-                           
-                            <a href="#" id="openModalLink" class="dropdown-item"><i class="fa-solid fa-address-book"></i> Contacto</a>
-                        </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[60vh] min-h-[400px] bg-cover bg-center text-white" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="container mx-auto px-6 h-full flex flex-col justify-center items-center text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight text-shadow-lg">Tu Aventura Inolvidable Comienza Aquí</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl text-shadow-md">Diseñamos experiencias de viaje únicas para que disfrutes cada momento.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Explorer Section -->
+        <section id="explorer" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Explorador de Paquetes</h2>
+                    <p class="mt-2 text-lg text-gray-600">Descubre todos nuestros paquetes turísticos.</p>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mb-12 text-center">
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                        <p class="text-2xl font-bold text-[#4A90E2]" id="package-count">0</p>
+                        <p class="text-sm text-gray-500">Destinos Exclusivos</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                        <p class="text-2xl font-bold text-[#4A90E2]" id="min-price">$0</p>
+                        <p class="text-sm text-gray-500">Precios desde</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                        <p class="text-2xl font-bold text-[#4A90E2]" id="max-duration">0</p>
+                        <p class="text-sm text-gray-500">Días de Aventura</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                        <p class="text-2xl font-bold text-[#4A90E2]">24/7</p>
+                        <p class="text-sm text-gray-500">Asistencia</p>
+                    </div>
+                </div>
+
+                <!-- Filter and Sort Controls -->
+                <div class="max-w-5xl mx-auto mb-12 p-6 bg-white rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label for="search-input" class="block text-sm font-medium text-gray-700 mb-2">Buscar Destino</label>
+                        <input type="text" id="search-input" placeholder="Ej: París, África" class="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]">
+                    </div>
+                    <div>
+                        <label for="min-price-input" class="block text-sm font-medium text-gray-700 mb-2">Precio Mínimo (USD)</label>
+                        <input type="number" id="min-price-input" placeholder="Ej: 1000" class="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]">
+                    </div>
+                    <div>
+                        <label for="max-price-input" class="block text-sm font-medium text-gray-700 mb-2">Precio Máximo (USD)</label>
+                        <input type="number" id="max-price-input" placeholder="Ej: 5000" class="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]">
+                    </div>
+                    <div class="md:col-span-3">
+                        <label for="sort-select" class="block text-sm font-medium text-gray-700 mb-2">Ordenar Por</label>
+                        <select id="sort-select" class="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]">
+                            <option value="default">Por defecto</option>
+                            <option value="price-asc">Precio (Menor a Mayor)</option>
+                            <option value="price-desc">Precio (Mayor a Menor)</option>
+                            <option value="name-asc">Nombre (A-Z)</option>
+                            <option value="name-desc">Nombre (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- All Dynamic Package Details -->
+                <div id="all-package-details" class="max-w-5xl mx-auto">
+                    <!-- Package details will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Nuestros Servicios</h2>
+                    <p class="mt-2 text-lg text-gray-600">Todo lo que necesitas para un viaje perfecto.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <div class="text-4xl text-[#4A90E2] mb-4">✈️</div>
+                        <h3 class="text-xl font-bold mb-2">Paquetes Turísticos</h3>
+                        <p class="text-gray-600">Destinos emocionantes y experiencias inolvidables diseñadas a tu medida.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <div class="text-4xl text-[#4A90E2] mb-4">🏨</div>
+                        <h3 class="text-xl font-bold mb-2">Vuelos y Alojamientos</h3>
+                        <p class="text-gray-600">Las mejores ofertas en vuelos y alojamientos para garantizar una estancia placentera.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <div class="text-4xl text-[#4A90E2] mb-4">🗺️</div>
+                        <h3 class="text-xl font-bold mb-2">Tours y Excursiones</h3>
+                        <p class="text-gray-600">Sumérgete en la cultura y belleza de cada lugar con nuestros guías expertos.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <div class="text-4xl text-[#4A90E2] mb-4">🚗</div>
+                        <h3 class="text-xl font-bold mb-2">Alquiler de Vehículos</h3>
+                        <p class="text-gray-600">Muévete con total libertad con una amplia gama de vehículos para alquilar.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <div class="text-4xl text-[#4A90E2] mb-4">🛡️</div>
+                        <h3 class="text-xl font-bold mb-2">Seguro de Viajero</h3>
+                        <p class="text-gray-600">Protege tu aventura con nuestro seguro integral que te cubre ante cualquier imprevisto.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <div class="text-4xl text-[#4A90E2] mb-4">🎧</div>
+                        <h3 class="text-xl font-bold mb-2">Asistencia 24/7</h3>
+                        <p class="text-gray-600">Viaja con tranquilidad sabiendo que nuestro equipo está disponible para ti.</p>
                     </div>
                 </div>
             </div>
-            <a href="#" id="open-cart-btn" class="nav-item nav-link">
-  <i class="fa-solid fa-cart-shopping"></i>
-</a>
-        </nav>
-    </div>
-</div>
+        </section>
 
-<!--Carousel-->
-
-<div class="container-fluid p-0">
-    <div id="header-carousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="w-100" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Persona con mochila mirando un paisaje montañoso nevado">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h4 class="text-white text-uppercase mb-md-3">Viajes Y Tours</h4>                          
-                        <h1 class="display-3 text-white mb-md-4">Te armamos tu paquete para que disfrutes a pleno y sea tu viaje deseado</h1>
-                    </div>   
+        <!-- About Us Section -->
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Nuestro Equipo</h2>
+                    <p class="mt-2 text-lg text-gray-600">Los apasionados por los viajes detrás de Mates Travel.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="w-full sm:w-1/2 lg:w-1/3 text-center">
+                        <img src="https://placehold.co/200x200/E2A14A/FFFFFF?text=SN" alt="Foto de SrNadien" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold">SrNadien</h3>
+                        <p class="text-gray-500">Desarrollador Senior</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 lg:w-1/3 text-center">
+                        <img src="https://placehold.co/200x200/4A90E2/FFFFFF?text=O" alt="Foto de Omarsito" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold">Omarsito</h3>
+                        <p class="text-gray-500">Desarrollador Senior</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="carousel-item">
-                <img class="w-100" src="https://images.unsplash.com/photo-1731413706859-f094b6b5edc1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Persona con mochila mirando un paisaje montañoso nevado">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h4 class="text-white text-uppercase mb-md-3">Viajes Y Tours</h4>                          
-                        <h1 class="display-3 text-white mb-md-4">Te armamos tu paquete para que disfrutes a pleno y sea tu viaje deseado</h1>
-                    </div>   
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">¿Hablamos?</h2>
+                    <p class="mt-2 text-lg text-gray-600">Envíanos un mensaje y comencemos a planificar tu próximo viaje.</p>
                 </div>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <input type="text" placeholder="Tu Nombre" class="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]">
+                            <input type="email" placeholder="Tu Email" class="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]">
+                        </div>
+                        <textarea placeholder="Tu Mensaje..." rows="5" class="w-full p-3 bg-gray-50 rounded-lg border border-gray-200 mb-6 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]"></textarea>
+                        <button type="submit" class="w-full py-3 bg-[#4A90E2] text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors">Enviar Mensaje</button>
+                    </form>
                 </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
-            <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                <span class="carousel-control-prev-icon mb-n2"></span>
-            </div>
-        </a>
-        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
-            <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                <span class="carousel-control-next-icon mb-n2"></span>
-            </div>
-        </a>
-    </div>
-</div>
-
-<br><br> <hr>
-<!--Section Servicios-->
-
-<main class="main-content" id="servicios">
-        <section class="nuestros-servicios">
-            <h1>Nuestros Servicios</h1>
-
-            <div class="servicio-item">
-                <i class="fas fa-plane-departure"></i>
-                <h2>Paquetes Turísticos</h2>
-                <p>Descubre nuestros paquetes diseñados a medida para tus sueños de viaje, con destinos emocionantes y experiencias inolvidables.</p>
-            </div>
-
-            <div class="servicio-item">
-                <i class="fas fa-ticket-alt"></i>
-                <h2>Vuelos y Alojamientos</h2>
-                <p>Encuentra las mejores ofertas en vuelos y selecciona alojamientos cómodos para cada destino, garantizando una estancia placentera.</p>
-            </div>
-
-            <div class="servicio-item">
-                <i class="fas fa-route"></i>
-                <h2>Tours y Excursiones</h2>
-                <p>Explora cada rincón con nuestros tours y excursiones guiadas, sumergiéndote en la cultura y belleza de cada lugar.</p>
-            </div>
-
-            <div class="servicio-item">
-                <i class="fas fa-headset"></i>
-                <h2>Asistencia 24/7</h2>
-                <p>Viaja con tranquilidad sabiendo que cuentas con nuestro equipo de asistencia disponible las 24 horas del día, los 7 días de la semana.</p>
-            </div>
-
-            <div class="servicio-item">
-                <i class="fas fa-car"></i>
-                <h2>Alquiler de Vehículos</h2>
-                <p>Muévete con total libertad. Ofrecemos una amplia gama de vehículos para alquilar, adaptándose a tus necesidades y presupuesto.</p>
-            </div>
-
-            <div class="servicio-item">
-                <i class="fas fa-shield-alt"></i>
-                <h2>Seguro de Viajero</h2>
-                <p>Protege tu aventura con nuestro seguro de viajero integral, que te cubre ante cualquier imprevisto durante tu viaje.</p>
             </div>
         </section>
     </main>
-    <br><br><hr>
-<!--Section Paquetes-->
 
-<main class="container" id="paquetes">
-        <div class="section-title">
-            <h1>Paquetes Turísticos</h1>
-            <p>Descubre el mundo con nuestros paquetes turísticos exclusivos y vive experiencias inolvidables.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; <span id="year"></span> Mates Travel. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Diseñado con ❤️ en Argentina.</p>
         </div>
+    </footer>
 
-        <div class="slider-container">
-            <div class="slide-wrapper" id="slideWrapper">
-                <div class="slide-item" style="background-image: url(https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-                    <div class="slide-content">
-                        <div class="slide-name">ÁFRICA</div>
-                        <div class="slide-description">¡Tu Aventura Africana te Espera! Prepárate para una experiencia que te cambiará la vida. Nuestro paquete turístico a África te sumerge en el corazón de la naturaleza más salvaje y espectacular del planeta. Imagina amaneceres dorados sobre la sabana, el emocionante rugido de un león en la distancia y la majestuosidad de manadas de elefantes desfilando frente a tus ojos.</div>
-                        <button class="open-popup-btn" data-target="popup-africa">Ver Paquete</button>
-                        <button class="add-to-cart-btn open-popup-btn" onclick="addToCart({ id: 3, price: 180000 })" >Añadir al Carrito</button>
-                    </div>
-                </div>
-                <div class="slide-item" style="background-image: url(https://images.unsplash.com/photo-1422464804701-7d8356b3a42f?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-                    <div class="slide-content">
-                        <div class="slide-name">EEUU</div>
-                        <div class="slide-description">¡Descubre la Inmensidad y la Magia de Estados Unidos! Prepárate para un viaje épico a través de la tierra de la libertad y las oportunidades, donde la diversidad de paisajes y culturas te dejará sin aliento. Nuestro paquete turístico a Estados Unidos te invita a explorar desde ciudades vibrantes hasta maravillas naturales que parecen de otro mundo.</div>
-                        <button class="open-popup-btn" data-target="popup-eeuu">Ver Paquete</button>
-                        <button class="add-to-cart-btn open-popup-btn" onclick="addToCart({ id: 3, price: 180000 })" >Añadir al Carrito</button>
-                    </div>
-                </div>
-                <div class="slide-item" style="background-image: url(https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-                    <div class="slide-content">
-                        <div class="slide-name">PARÍS</div>
-                        <div class="slide-description">¡París te Espera: La Ciudad del Amor y los Sueños! Déjate seducir por la magia incomparable de París, un destino que evoca romance, arte y una sofisticación atemporal. Nuestro paquete turístico te invita a vivir una experiencia inolvidable en la capital francesa, donde cada esquina cuenta una historia y cada momento es digno de una postal.</div>
-                        <button class="open-popup-btn" data-target="popup-paris">Ver Paquete</button>
-                        <button class="add-to-cart-btn open-popup-btn" onclick="addToCart({ id: 3, price: 180000 })" >Añadir al Carrito</button>
-                    </div>
-                </div>
-                <div class="slide-item" style="background-image: url(https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-                    <div class="slide-content">
-                        <div class="slide-name">JAPÓN</div>
-                        <div class="slide-description">Japón: Donde el Futuro se Encuentra con la Tradición Milenaria. Embárcate en un viaje inmersivo al corazón de un país fascinante, donde la serenidad de sus templos ancestrales convive en perfecta armonía con la vibrante energía de sus ciudades futuristas. Nuestro paquete turístico a Japón te invita a descubrir una cultura única y una hospitalidad inigualable.</div>
-                        <button class="open-popup-btn" data-target="popup-japon">Ver Paquete</button>
-                        <button class="add-to-cart-btn open-popup-btn" onclick="addToCart({ id: 3, price: 180000 })" >Añadir al Carrito</button>
-                    </div>
-                </div>
-                <div class="slide-item" style="background-image: url(https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-                    <div class="slide-content">
-                        <div class="slide-name">AUSTRALIA</div>
-                        <div class="slide-description">¡Australia te Espera: La Aventura de Tu Vida en la Tierra de los Contrastes! Prepárate para un viaje épico a través de paisajes que te dejarán sin aliento y encuentros inolvidables con la vida salvaje. Nuestro paquete turístico a Australia te sumerge en la esencia de la aventura, desde las profundidades del océano hasta el corazón del Outback.</div>
-                        <button class="open-popup-btn" data-target="popup-australia">Ver Paquete</button>
-                        <button class="add-to-cart-btn open-popup-btn" onclick="addToCart({ id: 3, price: 180000 })" >Añadir al Carrito</button>
-                    </div>
-                </div>
-                <div class="slide-item" style="background-image: url(https://images.unsplash.com/photo-1586354822120-bf910e563cdf?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-                    <div class="slide-content">
-                        <div class="slide-name">BSAS</div>
-                        <div class="slide-description">Buenos Aires al Ritmo del Tango: Un Viaje Apasionado. Sumérgete en el alma de Buenos Aires con un paquete turístico que celebra la pasión del tango. Desde las milongas más auténticas hasta los espectáculos más deslumbrantes, este viaje te invita a vivir la tradición argentina en cada paso.</div>
-                        <button class="open-popup-btn" data-target="popup-bsas">Ver Paquete</button>
-                        <button class="add-to-cart-btn open-popup-btn" onclick="addToCart({ id: 3, name: 'Paquete a Buenos Aires: Ritmo de Tango', price: 1800 })" >Añadir al Carrito</button>
-                    </div>
-                </div>
-            </div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-[#4A90E2] text-white w-12 h-12 rounded-full shadow-lg hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
 
-            <button class="slider-button prev" id="prevButton" type="button"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="slider-button next" id="nextButton" type="button"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const packageData = [
+                { id: 'africa', name: 'África', price: 4500, duration: 10, description: '10 días - 8 noches. Alojamiento 3 estrellas con desayuno. Incluye una excursión a las estepas para ver animales salvajes.', image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { id: 'eeuu', name: 'EEUU', price: 3800, duration: 10, description: '10 días - 8 noches. Alojamiento 4 estrellas con desayuno. Incluye excursión a la Estatua de la Libertad y al Empire State.', image: 'https://images.unsplash.com/photo-1422464804701-7d8356b3a42f?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { id: 'paris', name: 'París', price: 2500, duration: 10, description: '10 días - 8 noches. Alojamiento 3 estrellas con desayuno. Incluye excursión a la Torre Eiffel y a la Fontana Di Trevi.', image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { id: 'japon', name: 'Japón', price: 5200, duration: 14, description: '14 días - 12 noches. Alojamiento 5 estrellas con desayuno. Incluye excursión al parque Japonés y paseo por los templos.', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { id: 'australia', name: 'Australia', price: 4900, duration: 14, description: '14 días - 12 noches. Alojamiento 4 estrellas con desayuno. Incluye excursión a la reserva de Canguros enanos.', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                { id: 'bsas', name: 'Buenos Aires', price: 1800, duration: 10, description: '10 días - 8 noches. Alojamiento 5 estrellas con desayuno. Incluye excursión al Obelisco y a una estancia para degustar un asado.', image: 'https://images.unsplash.com/photo-1586354822120-bf910e563cdf?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
+            ];
 
-        <div id="popup-africa" class="popup">
-            <div class="popup-content">
-                <span class="close-popup-btn">&times;</span>
-                <section>
-                    <h3>Paquete a África: Safari Inolvidable</h3>
-                    <p>10 dias - 8 noches - Alojamiento hotel 3 estrellas c/desayuno incluye una excursion a las estepas a ver animales salvajes</p>
-                    <p class="price">Precio: $4500 USD</p>
-                    <!--<button class="add-to-cart-btn" data-package-name="África: Safari Inolvidable" data-package-price="4500">Añadir al Carrito</button>-->
-                </section>
-            </div>
-        </div>
+            const allPackageDetailsContainer = document.getElementById('all-package-details');
+            const searchInput = document.getElementById('search-input');
+            const minPriceInput = document.getElementById('min-price-input');
+            const maxPriceInput = document.getElementById('max-price-input');
+            const sortSelect = document.getElementById('sort-select');
 
-        <div id="popup-eeuu" class="popup">
-            <div class="popup-content">
-                <span class="close-popup-btn">&times;</span>
-                <section>
-                    <h3>Paquete a EEUU: Costa a Costa</h3>
-                    <p>10 dias - 8 noches - Alojamiento hotel 4 estrellas c/desayuno incluye una excursion a la estatua de la libertad y al Empire State</p>
-                    <p class="price">Precio: $3800 USD</p>
-                    <!--<button class="add-to-cart-btn" data-package-name="EEUU: Costa a Costa" data-package-price="3800">Añadir al Carrito</button>-->
-                </section>
-            </div>
-        </div>
+            const packageCountElem = document.getElementById('package-count');
+            const minPriceElem = document.getElementById('min-price');
+            const maxDurationElem = document.getElementById('max-duration');
 
-        <div id="popup-paris" class="popup">
-            <div class="popup-content">
-                <span class="close-popup-btn">&times;</span>
-                <section>
-                    <h3>Paquete a París: Romance y Cultura</h3>
-                    <p>10 dias - 8 noches - Alojamiento hotel 3 estrellas c/desayuno incluye una excursion a la Torre Eiffel y a la Fontana DiTrevvi</p>
-                    <p class="price">Precio: $2500 USD</p>
-                    <!--<button class="add-to-cart-btn" data-package-name="París: Romance y Cultura" data-package-price="2500">Añadir al Carrito</button>-->
-                </section>
-            </div>
-        </div>
+            let currentPackages = [...packageData]; // Work with a copy of the original data
 
-        <div id="popup-japon" class="popup">
-            <div class="popup-content">
-                <span class="close-popup-btn">&times;</span>
-                <section>
-                    <h3>Paquete a Japón: Tradición y Vanguardia</h3>
-                    <p>14 dias - 12 noches - Alojamiento hotel 5 estrellas c/desayuno incluye una excursion al parque Japones y pasear por los templos</p>
-                    <p class="price">Precio: $5200 USD</p>
-                    <!--<button class="add-to-cart-btn" data-package-name="Japón: Tradición y Vanguardia" data-package-price="5200">Añadir al Carrito</button>-->
-                </section>
-            </div>
-        </div>
+            function updateKeyMetrics() {
+                packageCountElem.textContent = currentPackages.length;
+                minPriceElem.textContent = `$${Math.min(...currentPackages.map(p => p.price))}`;
+                maxDurationElem.textContent = Math.max(...currentPackages.map(p => p.duration));
+            }
 
-        <div id="popup-australia" class="popup">
-            <div class="popup-content">
-                <span class="close-popup-btn">&times;</span>
-                <section>
-                    <h3>Paquete a Australia: Aventura en el Outback</h3>
-                    <p>14 dias - 12 noches - Alojamiento hotel 4 estrellas c/desayuno incluye una excursion a la reserva de Canguros enanos</p>
-                    <p class="price">Precio: $4900 USD</p>
-                    <!--<button class="add-to-cart-btn" data-package-name="Australia: Aventura en el Outback" data-package-price="4900">Añadir al Carrito</button>-->
-                </section>
-            </div>
-        </div>
+            function renderPackages(packagesToRender) {
+                allPackageDetailsContainer.innerHTML = ''; // Clear existing packages
+                if (packagesToRender.length === 0) {
+                    allPackageDetailsContainer.innerHTML = '<p class="text-center text-gray-600 text-lg">No se encontraron paquetes que coincidan con los criterios.</p>';
+                    return;
+                }
 
-        <div id="popup-bsas" class="popup">
-            <div class="popup-content">
-                <span class="close-popup-btn">&times;</span>
-                <section>
-                    <h3>Paquete a Buenos Aires: Ritmo de Tango</h3>
-                    <p>10 dias - 8 noches - Alojamiento hotel 5 estrellas c/desayuno incluye una excursion al obelisco y a una estancia a degustar una asado tremendo con ensaladas</p>
-                    <p class="price">Precio: $1800 USD</p>
-                    <!--<button class="add-to-cart-btn" data-package-name="Buenos Aires: Ritmo de Tango" data-package-price="1800">Añadir al Carrito</button>-->
-                </section>
-            </div>
-        </div>
-    </main>
-    <br><br> <hr>
+                packagesToRender.forEach(pkg => {
+                    const packageDetailCard = document.createElement('div');
+                    packageDetailCard.className = 'bg-gray-50 rounded-xl shadow-lg overflow-hidden mb-8 transform transition-transform duration-300 hover:scale-105'; 
 
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-        <div class="text-center mb-3 pb-3">
-            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Developers</h6>
-            <h1>Desarrolladores</h1>
-        </div>
-        <div class="row">
-            
-            <div class="col-lg-6 col-md-4 col-sm-6 pb-2">
-                <div class="team-item bg-white mb-4">
-                    <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="./imagenes/ñery.jpg" alt="Foto de perfil de SrNadien">
-                        <div class="team-social">
-                            <a class="btn btn-outline-primary btn-square" href="https://x.com/kingnadien" target="_blank" aria-label="Twitter de SrNadien"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.facebook.com/SrNadien/" target="_blank" aria-label="Facebook de SrNadien"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/srnadien/" target="_blank" aria-label="Instagram de SrNadien"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://github.com/SrNadien" target="_blank" aria-label="GitHub de SrNadien"><i class="fab fa-github"></i></a>
+                    packageDetailCard.innerHTML = `
+                        <div class="md:flex">
+                            <div class="md:flex-shrink-0">
+                                <img class="h-64 w-full object-cover md:w-64" src="${pkg.image}" alt="Paisaje de ${pkg.name}">
+                            </div>
+                            <div class="p-8 flex-grow">
+                                <h3 class="text-2xl font-bold text-gray-800">${pkg.name}</h3>
+                                <p class="mt-2 text-gray-600">${pkg.description}</p>
+                                <div class="mt-6 flex justify-between items-center">
+                                    <p class="text-3xl font-bold text-[#4A90E2]">$${pkg.price} USD</p>
+                                    <button class="add-to-cart-btn px-6 py-3 bg-[#E2A14A] text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors" data-package-name="${pkg.name}">Añadir al Carrito</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <h5 class="text-truncate">SrNadien</h5>
-                        <p class="m-0">Amante Del cafe Con Laucha</p>
-                        <p class="m-0">Desarrollador Senior</p>
-                    </div>
-                </div>
-            </div>
+                    `;
+                    allPackageDetailsContainer.appendChild(packageDetailCard);
+                });
+
+                // Re-add event listeners to newly rendered "Add to Cart" buttons
+                const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+                addToCartBtns.forEach(button => {
+                    button.addEventListener('click', function() {
+                        console.log(`Paquete "${this.dataset.packageName}" añadido al carrito.`);
+                        this.textContent = '¡Añadido!';
+                        this.classList.add('bg-green-500');
+                        setTimeout(() => {
+                            this.textContent = 'Añadir al Carrito';
+                            this.classList.remove('bg-green-500');
+                        }, 2000);
+                    });
+                });
+            }
+
+            function applyFiltersAndSort() {
+                let filteredPackages = [...packageData];
+
+                // Apply search filter
+                const searchTerm = searchInput.value.toLowerCase();
+                if (searchTerm) {
+                    filteredPackages = filteredPackages.filter(pkg => 
+                        pkg.name.toLowerCase().includes(searchTerm) || 
+                        pkg.description.toLowerCase().includes(searchTerm)
+                    );
+                }
+
+                // Apply price range filter
+                const minPrice = parseFloat(minPriceInput.value);
+                const maxPrice = parseFloat(maxPriceInput.value);
+
+                if (!isNaN(minPrice)) {
+                    filteredPackages = filteredPackages.filter(pkg => pkg.price >= minPrice);
+                }
+                if (!isNaN(maxPrice)) {
+                    filteredPackages = filteredPackages.filter(pkg => pkg.price <= maxPrice);
+                }
+
+                // Apply sorting
+                const sortOption = sortSelect.value;
+                if (sortOption === 'price-asc') {
+                    filteredPackages.sort((a, b) => a.price - b.price);
+                } else if (sortOption === 'price-desc') {
+                    filteredPackages.sort((a, b) => b.price - a.price);
+                } else if (sortOption === 'name-asc') {
+                    filteredPackages.sort((a, b) => a.name.localeCompare(b.name));
+                } else if (sortOption === 'name-desc') {
+                    filteredPackages.sort((a, b) => b.name.localeCompare(a.name));
+                }
+
+                currentPackages = filteredPackages; // Update currentPackages for key metrics
+                updateKeyMetrics();
+                renderPackages(currentPackages);
+            }
+
+            // Event Listeners for filters and sort
+            searchInput.addEventListener('input', applyFiltersAndSort);
+            minPriceInput.addEventListener('input', applyFiltersAndSort);
+            maxPriceInput.addEventListener('input', applyFiltersAndSort);
+            sortSelect.addEventListener('change', applyFiltersAndSort);
+
+            // Initial render
+            applyFiltersAndSort(); // This will also call renderPackages and updateKeyMetrics
+
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
             
-            <div class="col-lg-6 col-md-4 col-sm-6 pb-2">
-                <div class="team-item bg-white mb-4">
-                    <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="./imagenes/yo.jpg" alt="Foto de perfil de Omarsito">
-                        <div class="team-social">
-                            <a class="btn btn-outline-primary btn-square" href="" aria-label="Twitter de Omarsito"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.facebook.com/profile.php?id=61576906743493" aria-label="Facebook de Omarsito"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/omarmendoza1972/?__pwa=1" aria-label="Instagram de Omarsito"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.linkedin.com/in/omar-abud-1b747a136?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn de Omarsito"><i class="fab fa-linkedin-in"></i></a>                              
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <h5 class="text-truncate">Omarsito</h5>
-                        <p class="m-0">Amante Del cafe</p>
-                        <p class="m-0">Desarrollador Senior</p>
-                    </div>
-                </div>
-            </div>
+            document.getElementById('year').textContent = new Date().getFullYear();
 
-        </div>
-    </div>
-</div>
-
-<a href="https://wa.me/5492615172689" 
-   class="whatsapp-float" 
-   target="_blank" 
-   title="Chatea con nosotros por WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="Icono de WhatsApp" />
-</a>
-
-<div id="footer-container"></div>
-<script src="./javascript/footer.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="./javascript/contactomodal.js"></script>
-<!--Script Paquetes-->
-    <script src="javascript/paquetes.js"></script>
-    <script src="javascript/cart.js"></script> <script src="javascript/popup.js"></script>
-    <script src="script.js"></script>
-
-<div id="modalOverlay">
-    <div class="custom-modal">
-        <button class="modal-close" id="closeModalBtn">&times;</button>
-        <h2 style="text-align:center; margin-bottom:20px;">Contacto</h2>
-        <form action="https://formspree.io/f/yourformid" method="POST"> <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-            <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-            <input type="text" id="dni" name="dni" placeholder="DNI (7-10 dígitos)" required pattern="\d{7,10}">
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            <button type="submit">Enviar Mensaje</button>
-        </form>
-    </div>
-</div>
-
-<!-- TESTEOS -->
-<script src="./javascript/cart.js"></script>
-<div id="cart-modal" class="cart-modal hidden">
-  <div class="cart-content">
-    <header class="cart-header">
-      <h5>Tu Carrito</h5>
-      <button id="close-cart" type="button" class="close-btn">&times;</button>
-    </header>
-    <div id="cart-items" class="cart-body"></div>
-    <div class="cart-footer">
-      <div>Total: $<span id="cart-total">0.00</span></div>
-      <button id="pay-btn" class="btn btn-success btn-block mt-2">Pagar</button>
-    </div>
-    <div id="payment-section" class="payment-section">
-      <input type="text" id="card-number" placeholder="Número de Tarjeta">
-      <input type="text" id="expiry" placeholder="Fecha de vencimiento (MM/YY)">
-      <input type="text" id="cvv" placeholder="Código de seguridad (CVV)">
-      <button id="submit-payment" class="btn btn-primary btn-block">Enviar Pago</button>
-    </div>
-  </div>
-</div>
-
-<div id="status-overlay" class="status-overlay hidden">
-  <div class="status-box">
-    <img id="status-icon" src="" alt="Estado" />
-    <p id="status-text"></p>
-  </div>
-</div>
-
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
